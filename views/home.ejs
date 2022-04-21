@@ -7,23 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
 </head>
-<body>
+<body style="text-align: center;">
         <h1>Login</h1>
-        <a href="/register">REGISTER</a>
-
-    <form action="/" method="post" >
-        <label for="lname">Username:</label>
-        <input type="text" id="lname" name="username"><br><br>
         
-        <label for="lname">Password:</label>
-        <input type="password" id="lname" name="password"><br><br>
-
+        <form action="/" method="post" >
+            <label for="lname">Username:</label>
+            <input type="text" id="lname" name="username"><br><br>
+            
+            <label for="lname">Password:</label>
+            <input type="password" id="lname" name="password"><br><br>
+            
         <select id="role" name="role">
             <option value="" disabled selected>Select One</option>
             <option value="admin">Admin</option>
             <option value="customer">Customer</option>
         </select><br><br>
-
+        <a href="/register">REGISTER</a>
+        
         <h7 style="color: red;"><% if(err){ %>
             <%= err %> 
             <%  } %> </h7><br>

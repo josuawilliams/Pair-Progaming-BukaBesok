@@ -8,5 +8,20 @@
         "username" : "Akame",
         "password" : "123",
         "role" : "customer"
+    },
+    {
+        "username" : "Akame",
+        "password" : "123",
+        "role" : "customer"
+    },
+    {
+        "username" : "Akame",
+        "password" : "123",
+        "role" : "customer"
+    },
+    {
+        "username" : "Akame",
+        "password" : "123",
+        "role" : "customer"
     }
 ]

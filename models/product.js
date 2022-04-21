@@ -13,13 +13,22 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Store)
     }
+    rupiah(number){
+      return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(number)
+    }
   }
   Product.init({
     name: DataTypes.STRING,
     price: DataTypes.INTEGER,
     description: DataTypes.TEXT,
     imageURL: DataTypes.STRING,
-    stock: DataTypes.INTEGER,
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: {args: 1}
+      }
+    },
     StoreId : DataTypes.INTEGER
   }, {
     sequelize,

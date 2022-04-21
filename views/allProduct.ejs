@@ -24,9 +24,6 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Log Out</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
       </ul>
     </div>
   </nav>
@@ -36,6 +33,15 @@
   <h1>All Product</h1>
   <hr>
 
+  <!-- SEARCH -->
+  <form action="/product">
+    <input type="text" name="search">
+    <button type="submit" aria-placeholder="Search by Product Name" class="btn btn-primary">Search</button>
+  </form> 
+<a href="/product">
+  <button type="submit">Clear Search</button>
+</a>
+
   <!-- TABLE -->
   <table class="table">
     <thead class="thead-dark">
@@ -43,11 +49,7 @@
         <th scope="col">Product Name</th>
         <th scope="col">Store Name</th>
         <th scope="col">Category</th>
-        <th scope="col">Price</th>
-        <th scope="col">Description</th>
-        <th scope="col">Image</th>
         <th scope="col">Stock</th>
-        <th scope="col">Action</th>
       </tr>
     </thead>
     <% data.forEach(el => { %>
@@ -56,14 +58,7 @@
         <td><%= el.name %></td>
         <td><%= el.Store.name %></td>
         <td><%= el.Store.category %></td>
-        <td><%= el.price %></td>
-        <td><%= el.description %></td>
-        <td><%= el.imageURL %></td>
         <td><%= el.stock %></td>
-        <td>
-            <button type="button" class="btn btn-primary" href="/product/buy/<%= el.id %>">Buy</button>
-            <button type="button" class="btn btn-primary" href="/product/delete/<%= el.id %>">Delete</button>
-        </td>
       </tr>
     </tbody>
     <% }) %>
