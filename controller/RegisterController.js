@@ -1,6 +1,7 @@
 "use strict";
 const { User, Profile} = require("../models")
 const bcrypt = require("bcryptjs");
+const nodemailer = require('nodemailer')
 
 
 class Controller {
@@ -18,6 +19,8 @@ class Controller {
             if(data){
                 const checkPassword = bcrypt.compareSync(password, data.password) 
                 if(checkPassword){
+
+                    req.session.userId = data.id
                     return res.redirect("/store")
                 }else{
                     const text = "Cek Dulu Gak Sih Password Sama Username"
@@ -38,6 +41,7 @@ class Controller {
    }
 
    static saveRegister(req,res) {
+
       const { firstName, lastName, phoneNumber, username, password, email, gender, dateOfBirth, role } = req.body
       User.create({
           username,
@@ -120,6 +124,18 @@ class Controller {
         }
         res.send(error)
        })
+   }
+   static getlogout(req, res) {
+        req.session.destroy((err)=>{
+            if(err) res.send(err)
+            else{
+                res.redirect("/")
+            }
+        })
+   }
+
+   static postLogin(req, res,){
+
    }
 
    

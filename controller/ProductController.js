@@ -29,7 +29,7 @@ class Controller {
         let id = +req.params.id
         Product.decrement({stock: 1}, {where: {id}})
             .then(_ => {
-                res.redirect(`/store/${id}`)
+                res.redirect(`/store`)
             })
             .catch(err => {
                 res.send(err)
