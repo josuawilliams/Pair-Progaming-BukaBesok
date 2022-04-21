@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     category: DataTypes.STRING,
     code: DataTypes.STRING,
     since: DataTypes.DATE,
-    UsersId : DataTypes.INTEGER
+    UserId : DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Store',
