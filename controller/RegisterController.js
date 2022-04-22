@@ -19,7 +19,6 @@ class Controller {
             if(data){
                 const checkPassword = bcrypt.compareSync(password, data.password) 
                 if(checkPassword){
-
                     req.session.userId = data.id
                     return res.redirect("/store")
                 }else{
